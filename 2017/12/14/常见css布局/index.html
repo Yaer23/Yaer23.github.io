@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  
+  <link rel="stylesheet" href="/css/theme.css">
+  
+</head>
+<body>
+<header>
+  <div id="avatar">
+    
+    <img src="http://oofwms1or.bkt.clouddn.com/%E6%A8%B1%E8%8A%B1.jpg" href=http://Yaer23.github.io id="avatar" />
+  </div>
+  <div id="menu">
+    <ul id="menu-inner">
+      
+        <li id="menu-item">
+          <a href="/" id="menu-item-link" >Blog</a>
+        </li>
+      
+        <li id="menu-item">
+          <a href="/archives" id="menu-item-link" >Archives</a>
+        </li>
+      
+        <li id="menu-item">
+          <a href="/about" id="menu-item-link" >About</a>
+        </li>
+      
+        <li id="menu-item">
+          <a href="/project" id="menu-item-link" >Project</a>
+        </li>
+      
+    </ul>
+  </div>
+</header>
+<div id="content-outer">
+  <div id="content-inner">
+    
+    
+  <article id="post">
+    <h1>常见css总结</h1>
+    <p><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>  最近总结了一下css布局方面的知识，也做了相应的练习，查了些资料，当然也可能有很多地方没有考虑到，想的是在学习过程中不断更新这篇博文，博文在写的过程中也掺杂了一点自己的理解，若有错误或者不恰当的地方，烦请指教。<br><a id="more"></a> </p>
+<h2 id="绝对定位与浮动"><a href="#绝对定位与浮动" class="headerlink" title="绝对定位与浮动"></a>绝对定位与浮动</h2><h3 id="绝对定位与浮动都会“block”化元素"><a href="#绝对定位与浮动都会“block”化元素" class="headerlink" title="绝对定位与浮动都会“block”化元素"></a>绝对定位与浮动都会“block”化元素</h3><ul>
+<li>绝对定位：绝对定位后的元素生成一个块级框，而不论原来它在正常流中生成何种类型的框。（css绝对定位）</li>
+<li>浮动：“block”化元素是指：行内元素在设置浮动后，会拥有块级元素的部分特性，可以设置高宽等，其实质上还是行内元素。<h3 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h3></li>
+<li>使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围，可实现文字环绕图片的效果。</li>
+<li><p>使用absolute positioning脱离文档流的元素，其他盒子与其他盒子内的文本都会无视它。</p>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>元素脱离文档流后可能导致父容器塌陷，这个时候需要清除浮动避免塌陷。</p>
+</li>
+<li><p>clearfix清除浮动</p>
+</li>
+<li><p>overflow:hidden清除浮动(父容器溢出隐藏)</p>
+<h2 id="圣杯与双飞翼（三栏式布局）"><a href="#圣杯与双飞翼（三栏式布局）" class="headerlink" title="圣杯与双飞翼（三栏式布局）"></a>圣杯与双飞翼（三栏式布局）</h2><h5 id="圣杯与双飞翼是在做IFE百度前端小薇学院的三栏式布局的时候了解到的，通过尝试不同种布局，查阅了一些资料后，发现这个题比较好的解决方法就是圣杯布局。"><a href="#圣杯与双飞翼是在做IFE百度前端小薇学院的三栏式布局的时候了解到的，通过尝试不同种布局，查阅了一些资料后，发现这个题比较好的解决方法就是圣杯布局。" class="headerlink" title="圣杯与双飞翼是在做IFE百度前端小薇学院的三栏式布局的时候了解到的，通过尝试不同种布局，查阅了一些资料后，发现这个题比较好的解决方法就是圣杯布局。"></a>圣杯与双飞翼是在做IFE百度前端小薇学院的三栏式布局的时候了解到的，通过尝试不同种布局，查阅了一些资料后，发现这个题比较好的解决方法就是圣杯布局。</h5></li>
+<li><p>目的：两边定宽中间自适应</p>
+</li>
+<li>中心思想：<ul>
+<li>中间栏宽度设为100%独占一行</li>
+<li>为左右栏的“拉升”腾出空间（实现圣杯与双飞翼的不同之处）</li>
+<li>用margin-left负值将左右栏分别拉升回与中间栏同一高度的左右两边</li>
+</ul>
+</li>
+<li>需要注意的地方<ul>
+<li>对中间栏进行优先渲染</li>
+<li>圣杯基本布局之后需要做一些适当的调整实现具体布局要求，比如相对定位左右栏的位置进行优化</li>
+<li>在使用布局的时候要考虑盒子的border属性，必要时用到box-sizing:border-box；</li>
+</ul>
+</li>
+</ul>
+<h3 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h3><p>注：图片来自<a href="http://ife.baidu.com/course/detail/id/94" target="_blank" rel="noopener">IFE百度前端小薇学院三栏式布局</a></p>
+<p><img src="http://oofwms1or.bkt.clouddn.com/%E4%B8%89%E6%A0%8F%E5%BC%8F%E5%B8%83%E5%B1%80.png" alt="三栏式布局"></p>
+<h3 id="圣杯布局的具体实现："><a href="#圣杯布局的具体实现：" class="headerlink" title="圣杯布局的具体实现："></a>圣杯布局的具体实现：</h3><ul>
+<li>中间栏宽度设为100%独占一行</li>
+<li><strong>设置父容器的左右padding值</strong>为左右栏的“拉升”腾出空间</li>
+<li>用margin-left负值将左右栏分别拉升回与中间栏同一水平高度的左右两边</li>
+<li>使用相对定位设置左右栏的位置</li>
+</ul>
+<p>注：代码只截取了重要部分</p>
+<pre><code>  //这是html代码
+  &lt;div id=&quot;header&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;container&quot;&gt;
+     &lt;div id=&quot;center&quot; class=&quot;column&quot;&gt;&lt;/div&gt;
+     &lt;div id=&quot;left&quot; class=&quot;column&quot;&gt;&lt;/div&gt;
+     &lt;div id=&quot;right&quot; class=&quot;column&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;
+</code></pre><p>第一步：给中间栏设置宽度为100%，并设置父容器的左右padding值。给三栏加上浮动，并清除浮动使得父容器高度不塌陷</p>
+<pre><code class="css">/*这是最初的css样式（截取了关键部分）*/
+#container {
+    padding-left: 240px;        /* 左栏宽度+两倍padding值 */
+    padding-right: 160px;       /* 右栏宽度+两倍padding值 */
+    background: #eee;
+}
+#container .column{
+    float:left;
+}
+#container::after{      /* 防止父容器高度塌陷 */
+    content: &#39;&#39;;
+    display: block;
+    clear: both;
+}
+#center {
+    width: 100%;        /* 中间栏宽度设为100% */
+}
+#left {
+    width: 200px;       /* 左栏宽度固定 */  
+}
+#right {
+    width: 120px;       /* 右栏宽度固定 */
+}
+</code></pre>
+<p>效果如下：<br><img src="http://oofwms1or.bkt.clouddn.com/padding+float.png" alt="float+padding"><br>第二步：将左右栏分别拉升到与中间栏同一水平高度</p>
+<pre><code class="css">    #left{
+        margin-left: -100%;         /* 负的100% */
+    }
+    #right{
+        margin-right: -120px;       /* 负的右栏宽 */
+    }
+</code></pre>
+<p>效果如下：<br><img src="http://oofwms1or.bkt.clouddn.com/margin-left.png" alt="拉升左右栏"><br>第三步：使用相对定位设置左右栏的位置</p>
+<pre><code class="css">    #container .column{
+        position: relative;
+    }
+    #left{
+        right:220px;    /* 左栏向左平移到适当位置 */
+    }
+    #right{
+        left:20px;      /* 右栏向右平移到适当位置 */
+    }
+</code></pre>
+<p>效果如下：<br><img src="http://oofwms1or.bkt.clouddn.com/relative.png" alt="圣杯"><br>基本上三栏式布局就完成啦~ 再设置一些内外边距值就可以达到效果Demo<br>参考资料：</p>
+<ul>
+<li><a href="https://alistapart.com/article/holygrail" target="_blank" rel="noopener">Holygrail圣杯</a></li>
+</ul>
+<h3 id="双飞翼的具体实现："><a href="#双飞翼的具体实现：" class="headerlink" title="双飞翼的具体实现："></a>双飞翼的具体实现：</h3><p>与圣杯的相同之处不再赘述，不同点在于：</p>
+<ul>
+<li><strong>给中间栏再设置一个div，给div设置左右margin值</strong>为左右栏的“拉升”腾出空间<pre><code class="html">/*这是html代码*/
+&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;container&quot;&gt;
+&lt;div id=&quot;center&quot; class=&quot;column&quot;&gt;
+     &lt;div id=&quot;wrap&quot;&gt;&lt;/div&gt;       /* 添加的div */
+&lt;/div&gt;
+&lt;div id=&quot;left&quot; class=&quot;column&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;right&quot; class=&quot;column&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="css">#wrap{
+ margin-left: 220px;         /* 腾出左边部分 */
+ margin-right: 140px;        /* 腾出右边部分 */
+ padding: 20px;
+}
+</code></pre>
+实现效果：<br><img src="http://oofwms1or.bkt.clouddn.com/shuangfeiyi.png" alt="双飞翼"><br>双飞翼的缺点在于中间栏的高度只适应新添加的div的高度，当左右栏高度超出中间的高度，就会有上图的情况出现，而圣杯布局可以适应三栏中任意最高的高度。<h2 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h2><h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3></li>
+<li>text-align:center;只能适用于行内元素,块状元素可以通过改变元素的display属性（display:inline-block或者display:inline）</li>
+<li>固定宽度的块状元素设置margin:0 auto;使其居中显示<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3></li>
+<li>单行行内元素，设置行高（line-height）与height一致</li>
+<li>多行行内元素或者文字与图片一行用vertical-align:center;</li>
+<li>块状元素，父元素相对布局，子元素绝对定位（top:50%），再设置偏移（margin-top:子元素高度的一半）</li>
+<li>若子元素高度未知，将margin改为transform:translateY(-50%);<h3 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h3></li>
+<li>跟块状元素垂直居中的思路一样，父元素相对布局，子元素绝对定位（top:50%;left:50%;）,再设置偏移量（margin-top:子元素高度的一半;margin-left:子元素宽度的一半）</li>
+<li>子元素高度未知，将两个margin改为transform:translate(-50%,-50%);</li>
+</ul>
+<p>注意：transform是css3的内容，需要考虑兼容性</p>
+<h2 id="负margin"><a href="#负margin" class="headerlink" title="负margin"></a>负margin</h2><p>边学边总结。。</p>
+<h2 id="Flexbox布局"><a href="#Flexbox布局" class="headerlink" title="Flexbox布局"></a>Flexbox布局</h2><h2 id="grid"><a href="#grid" class="headerlink" title="grid"></a>grid</h2></p>
+  </article>
+
+
+  </div>
+</div>
+<footer id="bottom">
+  <div id="bottom-inner">
+    <p>Site by <a href="http://Yaer23.github.io" class="author">Lydiagogo </a>using
+    <a href="http://hexo.io" class="hexo">Hexo</a>.
+    <br>
+    </p>
+  </div>
+</footer>
+
+
+  
+  
+    <script src="/js/theme.js"></script>
+  
+
+</body>
+</html>

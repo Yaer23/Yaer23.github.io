@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  
+  <link rel="stylesheet" href="/css/theme.css">
+  
+</head>
+<body>
+<header>
+  <div id="avatar">
+    
+    <img src="http://oofwms1or.bkt.clouddn.com/%E6%A8%B1%E8%8A%B1.jpg" href=http://Yaer23.github.io id="avatar" />
+  </div>
+  <div id="menu">
+    <ul id="menu-inner">
+      
+        <li id="menu-item">
+          <a href="/" id="menu-item-link" >Blog</a>
+        </li>
+      
+        <li id="menu-item">
+          <a href="/archives" id="menu-item-link" >Archives</a>
+        </li>
+      
+        <li id="menu-item">
+          <a href="/about" id="menu-item-link" >About</a>
+        </li>
+      
+        <li id="menu-item">
+          <a href="/project" id="menu-item-link" >Project</a>
+        </li>
+      
+    </ul>
+  </div>
+</header>
+<div id="content-outer">
+  <div id="content-inner">
+    
+    
+  <article id="post">
+    <h1>Hexo+Github搭建个人博客基础教程</h1>
+    <p><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>刚开始接触网页设计的时候就想着要建立一个自己的网站但一直都没有开始行动，就当是一次学习的总结吧。网上有很多关于Hexo搭建网站的教程，很多都是前几年的，博主在搭建网站的时候也遇到了很多的坑，此文章是为了记录建博客时采取的一些操作以及引用的文档和教程资料，主要参考Hexo和Next官方文档，博主会对其中的一些我认为值得注意和学习的地方进行解释说明，希望能与大家一同分享<strong>^ ^</strong>。<br>文章若有不恰当的地方手动点击右方侧栏联系方式，<strong>请多指教  <strong>(:зゝ∠)</strong></strong>。<br><a id="more"></a> </p>
+<h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3><h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><ul>
+<li><strong>安装git、node.js</strong><br>  直接在官网上下载最新版本<br>  <a href="https://git-scm.com/" target="_blank" rel="noopener">git官网</a><br>  <a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js官网</a></li>
+<li><strong>检验安装是否成功</strong><br>  安装完成之后，在你认为合适的地方新建一个文件夹（博主直接建在桌面的），命名为Hexo。<br>  右击Hexo文件夹，点击Git Bush Here进入分别输入git –version、node -v、npm -v如下：<br><img src="http://oofwms1or.bkt.clouddn.com/version.png" alt="hhh"></li>
+<li><strong>申请github账号</strong><br>  进入<a href="https://github.com" target="_blank" rel="noopener">Github官网</a>，注册账号<br><img src="http://oofwms1or.bkt.clouddn.com/github.png" alt="G"><br>  建立一个 repository<br><img src="http://oofwms1or.bkt.clouddn.com/resository.png" alt="repository"></li>
+</ul>
+<p><strong>注意创建与账号同名的Repository并且勾选Initialize this repository with a README</strong></p>
+<p>创建成功后点击Settings可以看到：<br><img src="http://oofwms1or.bkt.clouddn.com/GHpage.png" alt="GHpages"><br>至此，我的网站域名为<a href="https://Yaer23.github.io">https://yaer23.github.io</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li><strong>安装Hexo</strong><br>  我是使用<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝NPM镜像</a>完成对Hexo的安装的<br>  打开Git Bash，输入以下命令<br>  <code>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></code><br>  使用NPM镜像安装，输入以下命令<br>  <code>cnpm install -g hexo-cli</code><br>  如果出现WARM不用理会，继续输入命令<br>  <code>cnpm install hexo –save</code><br>  检验安装是否成功<br>  <code>hexo -v</code><br>  看到显示的hexo版本如下（我的版本）说明安装成功啦（// v //）<br><img src="http://oofwms1or.bkt.clouddn.com/hexoVersion.png" alt="hexoVersion"></li>
+</ul>
+<ul>
+<li><strong>Hexo本地运行</strong><br>  hexo初始化<br>  <code>hexo init</code><br>  安装生成器<br>  <code>cnpm install</code><br>  运行hexo，输入命令<br>  <code>hexo s -g</code><br>  可以看到<br><img src="http://oofwms1or.bkt.clouddn.com/localhost.png" alt="localhost"><br>在浏览器中输入<a href="http://localhost:4000就可以看到Hexo的本地运行了" target="_blank" rel="noopener">http://localhost:4000就可以看到Hexo的本地运行了</a><br><img src="http://oofwms1or.bkt.clouddn.com/local.png" alt="localhost"></li>
+</ul>
+<p><em>Ctrl+C可以停止运行</em></p>
+<h3 id="将博客部署到github上"><a href="#将博客部署到github上" class="headerlink" title="将博客部署到github上"></a>将博客部署到github上</h3><h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><h4 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h4><ul>
+<li><p><strong>生成SSH</strong><br><pre><br>$ ssh-keygen -t rsa -C “邮件地址@youremail.com”<br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车&gt;<br></pre><br>然后系统会要你输入密码(这里的密码主要是在你提交Git时弹出密码认证)：<br><pre><br>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;<br>Enter same passphrase again:&lt;再次输入加密串&gt;<br></pre><br>成功后会出现如下图：<br><img src="http://oofwms1or.bkt.clouddn.com/ssh.png" alt="ssh"></p>
+</li>
+<li><p><strong>更改Github账号SSH信息</strong><br>找到<code>~/.ssh/id_rsa.pub</code>文件并复制里面的内容<br>登录Github并添加密钥，将复制的内容添加到SSH Key中</p>
+</li>
+<li><strong>测试SSH是否配置成功</strong><br>输入<code>ssh -T git@github.com</code><br>系统回复以下说明配置成功<pre>
+Hi username! You've successfully authenticated, but GitHub does not
+provide shell access.
+</pre></li>
+<li><strong>配置github用户信息</strong><pre>
+git config --global user.name your name
+git config --global user.email your_email@youremail.com
+</pre></li>
+<li><strong>部署到Github</strong><br>安装hexo git插件<br><code>cnpm install hexo-deployer-git –save</code><br>打开根目录配置文件(~/_config.yml)，<strong>修改</strong>部署配置：<pre>
+deploy:
+type: git
+repo:
+  github: git@github.com:Yaer23/Yaer23.github.io.git,master
+</pre></li>
+<li><strong>最后发布并更新博客</strong><br><code>hexo g</code><br><code>hexo d</code><br>然后打开<a href="https://Yaer23.github.io可以看到有Hexo主题的个人博客" target="_blank" rel="noopener">https://Yaer23.github.io可以看到有Hexo主题的个人博客</a><br>至此，简单的个人博客就部署成功 ٩(๑❛ᴗ❛๑)۶<h3 id="编辑并发表文章"><a href="#编辑并发表文章" class="headerlink" title="编辑并发表文章"></a>编辑并发表文章</h3><h4 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h4><code>hexo new “title”</code><br>其中title为你的文章命名<h4 id="编辑文章"><a href="#编辑文章" class="headerlink" title="编辑文章"></a>编辑文章</h4>打开新建的文章\source_posts\postName.md，其中postName是hexo new “title”中的title<pre>
+</pre></li>
+</ul>
+<hr>
+<p>title: My first one  # 文章页面上的显示名称，可以任意修改，不会出现在URL中<br>date: 2017-4-12 17:34:29  # 文章生成时间，一般不改<br>categories: diary  # 文章分类目录，多个分类使用[a,b,c]这种格式</p>
+<h2 id="tags-Hexo-diary-文章标签"><a href="#tags-Hexo-diary-文章标签" class="headerlink" title="tags: [Hexo,diary]  # 文章标签"></a>tags: [Hexo,diary]  # 文章标签</h2><p>#这里开始使用markdown格式输入你的正文。<br><!--more--> </p>
+<p>#more标签以下的内容要点击“阅读全文”才能看见，#more标签以上的内容为你首页显示文章的摘要部分</p>
+<p></p>
+<h4 id="MD渲染文章"><a href="#MD渲染文章" class="headerlink" title="MD渲染文章"></a>MD渲染文章</h4><p><a href="http://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a>是一种轻量级的「标记语言」，好处很多，balabala…（自行Google）<br>博主是直接用的<a href="https://maxiang.io" target="_blank" rel="noopener">马克飞象</a>来写博文的</p>
+<h3 id="相关git命令"><a href="#相关git命令" class="headerlink" title="相关git命令"></a>相关git命令</h3><p><pre><br>hexo g # 等于hexo generate # 生成静态文件<br>hexo s # 等于hexo server # 本地预览<br>hexo d # 等于hexo deploy # 部署，可与hexo g合并为 hexo d -g<br>hexo new [tittle] # 新建一篇文章<br>hexo version # 查看版本<br>hexo clean # 清除缓存文件和已生成的静态文件<br></pre></p>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>由于博主没有购买域名，这部分可以自行谷歌。</p>
+<h3 id="相关文档教程链接"><a href="#相关文档教程链接" class="headerlink" title="相关文档教程链接"></a>相关文档教程链接</h3><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>balabala…</p>
+</p>
+  </article>
+
+
+  </div>
+</div>
+<footer id="bottom">
+  <div id="bottom-inner">
+    <p>Site by <a href="http://Yaer23.github.io" class="author">Lydiagogo </a>using
+    <a href="http://hexo.io" class="hexo">Hexo</a>.
+    <br>
+    </p>
+  </div>
+</footer>
+
+
+  
+  
+    <script src="/js/theme.js"></script>
+  
+
+</body>
+</html>
